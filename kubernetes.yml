@@ -1,0 +1,37 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: vodafone-springboot-app
+  labels:
+    app: vodafone-springboot
+spec:
+  containers:
+    - name: vodafone-springboot-app
+      image: 'tezzcan/vodafone:v1.0'
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: vodafone-springboot-service
+spec:
+  selector:
+    app: vodafone-springboot
+  ports:
+    - port: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vodafone-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: vodafone-springboot-service
+                port:
+                  number: 8080
+---
