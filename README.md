@@ -12,7 +12,7 @@ We will create a simple springboot hello world server and deploy it to the our m
  - Installed a Jenkins node and the frontend on the same server.
  - Created a freestyle project to control kubernetes.
  - Configured when there is a push or pr request in Github trigger pipeline via Github Webhooks.
- - Jenkins pulls the repository rebuilds the docker image and publishes over de kubernetes.
+ - Jenkins pulls the repository rebuilds the docker image and publishes over the kubernetes.
  
  ## Links
  Live url : https://tezcan.dev/
